@@ -1,15 +1,13 @@
-##This is a set of two functions. 
-
-##The first primary function is a compound function which returns a list of
-##four elements. Subfunction1 allows the user to input a newmatrix and resets the cached value
-##to NULL. Subfunction 2 returns the current input matrix. Subfunction3 caches the computed value from the second 
-##primary function. Subfunction4 returns the cached i value.
-
+##The first primary function is a compound function which returns a list of four elements.
+##Subfunction1: input a newmatrix and reset the cached value to NULL. 
+##Subfunction 2: return the current input matrix.
+##Subfunction3 caches the computed value from the second primary function.
+##Subfunction4 returns the cached i value.
 ##The second primary function ultimately calculates the inverse of the entered matrix. It first checks for a
 ##cached value and returns that value if needed. It then calculates the inverse of the entered matrix
 
-makeCacheMatrix <- function(x = numeric()) {    ##Define function with numeric argument
-  i <- NULL                                     ##Create variable I in which to store the return of "cacheSolve"
+makeCacheMatrix <- function(x = matrix()) {    ##Define function with numeric argument
+  i <- NULL                                     ##Create variable i in which to store the return of "cacheSolve"
   set <- function(y) {                          ##Define function which allows user to use different data
     x <<- y                                     ##which resets x to y
     i <<- NULL                                  ##and i to null
@@ -33,3 +31,11 @@ cacheSolve <- function(x, ...) {                ##Define a function with input a
   x$setinverse(i)                               ##Update the cache with new matrix
   i                                             ##Return the new value for the matrix inverse
 }
+
+mat2 <- matrix(1:4, nrow = 2, ncol = 2)
+mat2
+
+a <- makeCacheMatrix(mat2)
+a
+
+cacheSolve(a)
